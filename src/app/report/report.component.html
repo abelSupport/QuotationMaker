@@ -1,0 +1,57 @@
+<div class="container" style="display:flex;">
+
+
+
+    <form>
+        <div class="row">
+            <div class="col-6">
+                <label for="QID">QID</label> &nbsp; &nbsp;
+                <input type="text" id="QID" name="QID" placeholder="Your QID" [(ngModel)]="quotationModel.QID">
+            </div>
+
+        </div>
+        <hr>
+        OR
+        <hr>
+
+
+        <div class="form-group row">
+            <label for="StartDate">From date</label>
+            <div class="col-6">
+                <input type="date" class="form-control" [(ngModel)]="quotationModel.StartDate" id="fromdate"
+                    name="fromdate" placeholder="From date">
+            </div>
+
+        </div>
+        <div class="form-group row" style="width: 400px;">
+            <label for="EndDate">To Date</label>
+            <div class="col-6">
+                <input type="date" class="form-control" [(ngModel)]="quotationModel.EndDate" id="todate" name="todate"
+                    placeholder="To Date">
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="card-footer">
+            <div class="form-group row">
+
+
+                <div class="col-1">
+                    <button class="button-90" (click)="exportToExcel()">Export to Excel</button>
+                </div>
+                <div class="col-1">
+                    <button class="button-90" (click)="search()">Search</button>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </form>
+
+
+
+</div>

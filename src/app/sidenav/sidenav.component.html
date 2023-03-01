@@ -1,0 +1,47 @@
+<!-- 
+<h1 class="title"> 
+  Welcome to right click education
+</h1> -->
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h4> Quotation Maker</h4>
+    <button mat-button (click)="opened = !opened"> <mat-icon>menu</mat-icon></button>
+    <button mat-button (click)="home()"> <mat-icon>home</mat-icon> Home</button>
+
+    <button mat-button [matMenuTriggerFor]="belowMenu" style="margin-left: 1070px;"> <mat-icon>account_circle</mat-icon> Profile</button>
+    <mat-menu #belowMenu="matMenu" yPosition="below">
+      <button mat-menu-item (click)="editProfile()">Edit Profile</button>
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]="opened" mode="side">
+
+    <mat-list>
+      <!-- <mat-list-item> <a routerLink="/c" style="text-decoration: none;"> <mat-icon>dashboard</mat-icon>
+          Dashboard</a></mat-list-item> -->
+      <mat-list-item> <a routerLink="/dashboard" style="text-decoration: none;"> <mat-icon>dashboard</mat-icon>
+          Dashboard</a></mat-list-item>
+      <mat-list-item> <a routerLink="/quotationlist" style="text-decoration: none;"> <mat-icon>list</mat-icon>
+          Quotation List</a></mat-list-item>
+      <mat-list-item> <a routerLink="/report" style="text-decoration: none;"> <mat-icon>report</mat-icon>
+          Report</a></mat-list-item>
+      <mat-list-item> <a routerLink="/globalsearch" style="text-decoration: none;"> <mat-icon>search</mat-icon>
+          Global Search</a></mat-list-item>
+      <mat-list-item> <a routerLink="/userlist" style="text-decoration: none;"> <mat-icon>list</mat-icon>
+          User List</a></mat-list-item>
+      <mat-list-item> <a routerLink="/usermanual" style="text-decoration: none;"> <mat-icon>manual</mat-icon>
+          User manual</a></mat-list-item>
+    </mat-list>
+
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

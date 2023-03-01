@@ -1,0 +1,82 @@
+<div class="container-fluid">
+
+
+    <div class="row" style="display:flex; justify-content: space-between;">
+        <div class="col-6">
+            <h2 style="margin-left: 10px;">Quotation List</h2>
+        </div>
+        <div class="col-6">
+            <button *ngIf="loginModel.Role_ID == 1" class="button-85" style="float: right;" (click)="generateQuotation()"> Generate Quotation </button> 
+        </div>
+        
+    </div>
+    
+
+    <table id="customers" style="margin-top: 10px;">
+        <tr>
+
+            
+            <th>Sr. No.</th>
+
+            <th>Quotation Status</th>
+
+            <th>Quotation Invited For</th>
+            <th>Start Date </th>
+            <th>End Date</th>
+            <th>EMD Amount</th>
+            <th>Quotation Amount</th>
+            <th>Contract Period</th>
+            <th>Eligibility Criteria</th>
+            <th>Quotation Floated By</th>
+
+            <th> Action </th>
+        </tr>
+
+        <tr *ngFor="let q of quotationData; let i = index">
+            <td> {{ i+1 }} </td>
+
+            <td> 
+
+                <span *ngIf="q.status == 0"> Pending </span>
+                <span *ngIf="q.status == 1"> Verified </span>
+                <span *ngIf="q.status == 2"> Approved </span>
+                
+            </td>
+
+            <td> {{ q.QuotationInvitedFor }} </td>
+            <td>{{ q.StartDate }}</td>
+            <td>{{ q.EndDate }}</td>
+            <td>{{ q.EMDAmount }}</td>
+            <td>{{ q.QuotationAmount }}</td>
+            <td>{{ q.ContractPeriod }}</td>
+            <td>{{ q.EligibilityCriteria }}</td>
+            <td>{{ q.QuotationFloatedBy }}</td>
+
+
+            <td *ngIf="loginModel.Role_ID == 1"> 
+                    <button class="button-90" style="width: fit-content;" (click)="view(q)"> View </button>  
+            </td>
+
+            <td *ngIf="loginModel.Role_ID == 2"> 
+                
+                <button *ngIf="q.status == 0" class="button-90" style="width: fit-content;" (click)="verify(q)"> Verify </button> 
+                <button class="button-90" style="width: fit-content;" (click)="view(q)"> View </button>  
+            </td>
+
+            <td *ngIf="loginModel.Role_ID == 3"> 
+                
+                <button class="button-90" *ngIf="q.status == 1" style="font-size: 15px;width: fit-content;padding: 15px;" (click)="approve(q)"> Approve </button>  
+                <button class="button-90"  style="font-size: 15px;width: fit-content;padding: 15px;" (click)="view(q)"> View </button>   
+            </td>
+
+        
+
+        </tr>
+    </table>
+
+
+
+
+
+
+</div>
